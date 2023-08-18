@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    
+html made up of two contents-head and body
+<head>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <script>
+        function changeHeader(){
+            const h1 = document.querySelector("#my-header");//below clicking a button here we are using a DOM to findout perticular element(my header)
+            h1.innerHTML = "Welcome to DOM Programming using JavaScript"
+        }
+    </script>
+
+</head>
+<body>
+    <h1>Hello, world</h1>
+    <h2 id="my-header"></h2>
+    <a href="https://www.google.com">Google</a>
+     <button onclick="changeHeader()">change</button> 
+    <button id="button" style="color: green;" onclick="alert('Hello')">ok</button>
+</body>
+</html>

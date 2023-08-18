@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setTimeout</title>
+    <script>
+
+    function longRun(ms){
+        console.log("longRun started");
+        const start = new Date;
+        while(new Date-start<ms);
+        console.log("longRun ended")
+    }
+     function frozen(){
+        console.log("frozen started");
+        longRun(5000);
+        console.log("frozen ended")
+     }
+
+     function useTimeout(){
+        console.log("useTimeout started");
+        setTimeout(longRun,3000,5000)
+        console.log("useTimeout ended")
+     }
+     function usePromise(){
+        const pakka = new Promise ((resolve, reject) => {
+            console.log("Promise Started");
+            // longRun(5000);
+            resolve("Success");
+            console.log("Promise ended");
+        });
+        pakka
+        .then(result =>{ longRun(5000);console.log("result",result)})
+        .catch(error=>{ longRun(5000);console.log('error',error)});
+     }
+    </script>
+</head>
+<body>
+    <input type="number"/>
+    <button onclick="frozen()">Frozen</button>
+    <button onclick="useTimeout()">timeout</button>
+    <button onclick="usePromise()">promise</button>
+</body>
+</html>
